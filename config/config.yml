@@ -1,0 +1,29 @@
+mqtt:
+  host: mqtt
+  port: 1883
+  user: mqttuser
+  password: mqttpass
+
+detectors:
+  ov:
+    type: openvino
+    device: GPU
+
+cameras:
+  lorex_e892ab:
+    ffmpeg:
+      inputs:
+        - path: rtsp://192.168.20.101:554/cam/realmonitor?channel=1&subtype=0
+          input_args: preset-rtsp-restream
+          roles:
+            - detect
+            - record
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    record:
+      enabled: true
+      retain:
+        days: 7
+        mode: motion

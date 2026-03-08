@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  frigate:
+    container_name: frigate
+    restart: unless-stopped
+    image: ghcr.io/blakeblackshear/frigate:stable
+    shm_size: "512mb"
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - ./config:/config:ro
+      - /mnt/frigate-storage:/media/frigate
+      - type: tmpfs
+        target: /tmp/cache
+        tmpfs:
+          size: 1000000000
+    ports:
+      - "8971:8971"  # RTSP
+      - "5000:5000"  # Web UI
+      - "8554:8554"  # RTSP feeds
+    environment:
+      - FRIGATE_RTSP_PASSWORD=frigatepass
+  mqtt:
+    container_name: frigate-mqtt
+    image: eclipse-mosquitto:latest
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mqtt:/mosquitto/config
+      - ./mqtt/data:/mosquitto/data
+      - ./mqtt/log:/mosquitto/log
