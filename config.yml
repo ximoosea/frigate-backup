@@ -1,0 +1,34 @@
+mqtt:
+  enabled: false
+
+record:
+  enabled: true
+  continuous:
+    days: 7
+  motion:
+    days: 7
+
+go2rtc:
+  streams:
+    driveway:
+      - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0
+    driveway_sub:
+      - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=1
+
+cameras:
+  driveway:
+    enabled: true
+    ffmpeg:
+      hwaccel_args: preset-vaapi
+      inputs:
+        - path: rtsp://127.0.0.1:8554/driveway_sub
+          roles:
+            - detect
+        - path: rtsp://127.0.0.1:8554/driveway
+          roles:
+            - record
+
+detectors:
+  cpu:
+    type: cpu
+version: 0.17-0
