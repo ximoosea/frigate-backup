@@ -18,8 +18,8 @@ go2rtc:
 cameras:
   driveway:
     enabled: true
+    # REMOVED hwaccel_args: preset-none
     ffmpeg:
-      hwaccel_args: preset-vaapi
       inputs:
         - path: rtsp://127.0.0.1:8554/driveway_sub
           roles:
@@ -27,8 +27,3 @@ cameras:
         - path: rtsp://127.0.0.1:8554/driveway
           roles:
             - record
-
-detectors:
-  intel_gpu:
-    type: vaapi
-    device: /dev/dri/renderD128

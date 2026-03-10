@@ -1,0 +1,16 @@
+{}
+streams:
+  wizard_stream_1773008391927_1773008921759:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773009118625_1773009145886:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  behind_garage:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773093096454_1773093121882:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  behind_garage_manual:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif

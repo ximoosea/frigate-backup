@@ -1,12 +1,23 @@
 mqtt:
   enabled: false
 
+# 1. Global Recording Settings (30 days of everything)
 record:
   enabled: true
   continuous:
-    days: 7
+    days: 30
   motion:
-    days: 7
+    days: 30
+
+# 2. Global Object Settings
+objects:
+  track:
+    - person
+    - car
+
+# 3. License Plate Recognition
+lpr:
+  enabled: true
 
 go2rtc:
   streams:
@@ -31,4 +42,5 @@ cameras:
 detectors:
   cpu:
     type: cpu
+
 version: 0.17-0
