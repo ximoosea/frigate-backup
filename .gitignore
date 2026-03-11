@@ -1,3 +1,11 @@
 storage/
+*.db
+*.db-shm
+*.db-wal
+.jwt_secret
+.exports
+.timeline
+.vacuum
+.search_stats.json
 frigate.db
 .cache/
