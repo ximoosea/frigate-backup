@@ -1,308 +1,38 @@
 mqtt:
   enabled: false
 
+auth:
+  enabled: false
+
+detectors:
+  ov:
+    type: openvino
+    device: GPU
+
+model:
+  model_type: yolo-generic
+  path: /openvino-model/yolov8n/yolov8n_openvino_model/yolov8n.xml
+  width: 320
+  height: 320
+  input_tensor: nchw
+  input_pixel_format: bgr
+
 record:
   enabled: true
   continuous:
     days: 30
   motion:
     days: 30
-
-objects:
-  track:
-    - person
-    - car
-
-lpr:
-  enabled: true
-
-go2rtc:
-  streams:
-    shop_inside_main:
-      - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010
-    shop_inside_sub:
-      - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010
-    front_door:
-      - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
-    front_door_sub:
-      - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    driveway_1:
-      - rtsp://admin:July122010@192.168.40.65:554/
-    driveway_2:
-      - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
-    garage:
-      - rtsp://admin:July122010@192.168.40.67:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
-    garage_sub:
-      - rtsp://admin:July122010@192.168.40.67:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    shop_front:
-      - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
-    shop_front_sub:
-      - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    shop_side:
-      - rtsp://admin:July122010@192.168.40.55:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
-    shop_side_sub:
-      - rtsp://admin:July122010@192.168.40.55:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    firepit:
-      - rtsp://admin:July122010@192.168.40.80:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
-    firepit_sub:
-      - rtsp://admin:July122010@192.168.40.80:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    patio:
-      - rtsp://admin:July122010@192.168.40.85:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
-    patio_sub:
-      - rtsp://admin:July122010@192.168.40.85:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    behind_garage:
-      - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
-    behind_garage_sub:
-      - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    mbr:
-      - rtsp://admin:July122010@192.168.40.75:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
-    mbr_sub:
-      - rtsp://admin:July122010@192.168.40.75:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    speakeasy:
-      - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
-
 cameras:
-  shop_inside:
-    ui: {order: 2}
-    enabled: true
-    friendly_name: Shop Inside
-    detect:
-      fps: 5
+  test:
     ffmpeg:
       inputs:
-        - path: rtsp://127.0.0.1:8554/shop_inside_sub
-          input_args: preset-rtsp-restream
+        - path: /media/frigate/person-bicycle-car-detection.mp4
+          input_args: -re -stream_loop -1 -fflags +genpts
           roles:
             - detect
-        - path: rtsp://127.0.0.1:8554/shop_inside_main
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: shop_inside_main
-        Stream 2: shop_inside_sub
-
-  front_door:
-    ui: {order: 3}
-    enabled: true
-    friendly_name: Front Door
     detect:
+      height: 1080
+      width: 1920
       fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/front_door_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/front_door
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: front_door
-        Stream 2: front_door_sub
-
-  driveway:
-    ui: {order: 4}
-    enabled: true
-    friendly_name: Driveway
-    detect:
-      fps: 5
-    ffmpeg:
-      hwaccel_args: preset-vaapi
-      inputs:
-        - path: rtsp://127.0.0.1:8554/driveway_2
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/driveway_1
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: driveway_1
-        Stream 2: driveway_2
-
-  garage:
-    ui: {order: 5}
-    enabled: true
-    friendly_name: Garage
-    detect:
-      fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/garage_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/garage
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: garage
-        Stream 2: garage_sub
-
-  shop_front:
-    ui: {order: 6}
-    enabled: true
-    friendly_name: Shop Front
-    detect:
-      fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/shop_front_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/shop_front
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: shop_front
-        Stream 2: shop_front_sub
-
-  shop_side:
-    ui: {order: 7}
-    enabled: true
-    friendly_name: Shop Side
-    detect:
-      fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/shop_side_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/shop_side
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: shop_side
-        Stream 2: shop_side_sub
-
-  firepit:
-    ui: {order: 8}
-    enabled: true
-    friendly_name: Firepit
-    detect:
-      fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/firepit_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/firepit
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: firepit
-        Stream 2: firepit_sub
-
-  patio:
-    ui: {order: 9}
-    enabled: true
-    friendly_name: Patio
-    detect:
-      fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/patio_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/patio
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: patio
-        Stream 2: patio_sub
-
-  behind_garage:
-    ui: {order: 10}
-    enabled: true
-    friendly_name: Behind Garage
-    detect:
-      fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/behind_garage_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/behind_garage
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: behind_garage
-        Stream 2: behind_garage_sub
-
-  mbr:
-    ui: {order: 11}
-    enabled: true
-    friendly_name: MBR
-    detect:
-      fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/mbr_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-        - path: rtsp://127.0.0.1:8554/mbr
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: mbr
-        Stream 2: mbr_sub
-
-  speakeasy:
-    ui: {order: 12}
-    enabled: true
-    friendly_name: Speakeasy
-    detect:
-      fps: 5
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/speakeasy
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-            - record
-            - audio
-    live:
-      streams:
-        Stream 1: speakeasy
-
-detectors:
-  cpu:
-    type: cpu
-
 version: 0.17-0
