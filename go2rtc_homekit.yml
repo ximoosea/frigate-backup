@@ -1,0 +1,13 @@
+{}
+streams:
+  wizard_stream_1773274526730_1773274803362:
+    - rtsp://admin:July122010@192.168.40.100:554/
+streams:
+  wizard_stream_1773274534193_1773274803363:
+    - rtsp://admin:July122010@192.168.40.100:554/h264Preview_01_sub
+streams:
+  doorbell_2:
+    - rtsp://admin:July122010@192.168.40.100:554/h264Preview_01_sub
+streams:
+  doorbell_1:
+    - rtsp://admin:July122010@192.168.40.100:554/

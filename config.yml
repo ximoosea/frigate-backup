@@ -23,16 +23,28 @@ record:
     days: 30
   motion:
     days: 30
+go2rtc:
+  streams:
+    doorbell_1:
+      - rtsp://admin:July122010@192.168.40.100:554/
+    doorbell_2:
+      - rtsp://admin:July122010@192.168.40.100:554/h264Preview_01_sub
+
 cameras:
-  test:
+  doorbell:
+    enabled: true
     ffmpeg:
       inputs:
-        - path: /media/frigate/person-bicycle-car-detection.mp4
-          input_args: -re -stream_loop -1 -fflags +genpts
+        - path: rtsp://127.0.0.1:8554/doorbell_1
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+            - audio
+        - path: rtsp://127.0.0.1:8554/doorbell_2
+          input_args: preset-rtsp-restream
           roles:
             - detect
     detect:
-      height: 1080
-      width: 1920
+      enabled: true
       fps: 5
 version: 0.17-0
