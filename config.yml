@@ -4,6 +4,9 @@ mqtt:
 auth:
   enabled: false
 
+ffmpeg:
+  path: "7.0"
+
 detectors:
   ov:
     type: openvino
@@ -23,6 +26,7 @@ record:
     days: 30
   motion:
     days: 30
+
 go2rtc:
   streams:
     doorbell_1:
