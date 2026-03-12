@@ -23,3 +23,189 @@ streams:
 streams:
   front_door_2:
     - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773349982949_1773350019433:
+    - rtsp://admin:July122010@192.168.40.67:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773349979903_1773350019431:
+    - rtsp://admin:July122010@192.168.40.67:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  garage_1:
+    - rtsp://admin:July122010@192.168.40.67:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  garage_2:
+    - rtsp://admin:July122010@192.168.40.67:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773350138048_1773350192146:
+    - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
+streams:
+  wizard_stream_1773350135047_1773350192146:
+    - rtsp://admin:July122010@192.168.40.65:554/
+streams:
+  wizard_stream_1773350135047_1773350192146:
+    - ffmpeg:rtsp://admin:July122010@192.168.40.65:554/
+streams:
+  wizard_stream_1773350135047_1773350192146:
+    - rtsp://admin:July122010@192.168.40.65:554/
+streams:
+  wizard_stream_1773350138048_1773350259838:
+    - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
+streams:
+  wizard_stream_1773350135047_1773350259838:
+    - rtsp://admin:July122010@192.168.40.65:554/
+streams:
+  driveway_2:
+    - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
+streams:
+  driveway_1:
+    - rtsp://admin:July122010@192.168.40.65:554/
+streams:
+  wizard_stream_1773350796514_1773350828331:
+    - rtsp://admin:July122010@192.168.40.50:554/h264Preview_01_sub
+streams:
+  wizard_stream_1773350439323_1773350828330:
+    - rtsp://admin:July122010@192.168.40.50:554/h264Preview_01_main
+streams:
+  wizard_stream_1773351096175_1773351205253:
+    - http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010
+streams:
+  wizard_stream_1773351004024_1773351205253:
+    - http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010
+streams:
+  wizard_stream_1773351004024_1773351205253:
+    - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010
+streams:
+  wizard_stream_1773351096175_1773351205253:
+    - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010
+streams:
+  shop_inside_2:
+    - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010
+streams:
+  shop_inside_1:
+    - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010
+streams:
+  wizard_stream_1773353965522_1773354014831:
+    - rtsp://admin:July122010@192.168.40.65:554/
+streams:
+  wizard_stream_1773353972067_1773354014833:
+    - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
+streams:
+  wizard_stream_1773353972067_1773354217516:
+    - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
+streams:
+  wizard_stream_1773353965522_1773354217515:
+    - rtsp://admin:July122010@192.168.40.65:554/
+streams:
+  driveway_1:
+    - rtsp://admin:July122010@192.168.40.65:554/
+streams:
+  driveway_2:
+    - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
+streams:
+  wizard_stream_1773354986247_1773355053899:
+    - http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010
+streams:
+  wizard_stream_1773355006543_1773355053900:
+    - http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010
+streams:
+  wizard_stream_1773354986247_1773355053899:
+    - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010
+streams:
+  wizard_stream_1773355006543_1773355053900:
+    - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010
+streams:
+  shop_inside_1:
+    - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010
+streams:
+  shop_inside_2:
+    - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010
+streams:
+  wizard_stream_1773355138146_1773355160815:
+    - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355142951_1773355160816:
+    - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  shop_front_1:
+    - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  shop_front_2:
+    - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355278164_1773355296394:
+    - rtsp://admin:July122010@192.168.40.55:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355281176_1773355296395:
+    - rtsp://admin:July122010@192.168.40.55:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  shop_side_1:
+    - rtsp://admin:July122010@192.168.40.55:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  shop_side_2:
+    - rtsp://admin:July122010@192.168.40.55:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355372608_1773355385414:
+    - rtsp://admin:July122010@192.168.40.85:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355377940_1773355385414:
+    - rtsp://admin:July122010@192.168.40.85:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  patio_2:
+    - rtsp://admin:July122010@192.168.40.85:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  patio_1:
+    - rtsp://admin:July122010@192.168.40.85:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355444464_1773355451520:
+    - rtsp://admin:July122010@192.168.40.80:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355436897_1773355451520:
+    - rtsp://admin:July122010@192.168.40.80:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  firepit_2:
+    - rtsp://admin:July122010@192.168.40.80:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  firepit_1:
+    - rtsp://admin:July122010@192.168.40.80:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355529389_1773355538401:
+    - rtsp://admin:July122010@192.168.40.75:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355521586_1773355538400:
+    - rtsp://admin:July122010@192.168.40.75:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  mbr_1:
+    - rtsp://admin:July122010@192.168.40.75:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  mbr_2:
+    - rtsp://admin:July122010@192.168.40.75:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355619505_1773355623762:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355613683_1773355623761:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  behind_garage_2:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  behind_garage_1:
+    - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773355704825_1773355811733:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_sub
+streams:
+  wizard_stream_1773355687521_1773355811731:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
+streams:
+  wizard_stream_1773355687521_1773355811731:
+    - ffmpeg:rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
+streams:
+  wizard_stream_1773355687521_1773355811731:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
+streams:
+  speakeasy_2:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_sub
+streams:
+  speakeasy_1:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
