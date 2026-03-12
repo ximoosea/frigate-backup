@@ -11,3 +11,15 @@ streams:
 streams:
   doorbell_1:
     - rtsp://admin:July122010@192.168.40.100:554/
+streams:
+  wizard_stream_1773276265733_1773276304581:
+    - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
+streams:
+  wizard_stream_1773276256144_1773276304580:
+    - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  front_door_1:
+    - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
+streams:
+  front_door_2:
+    - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
