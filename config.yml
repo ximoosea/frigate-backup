@@ -27,63 +27,64 @@ record:
   motion:
     days: 30
 
+objects:
+  track:
+    - person
+    - car
+    - truck
+    - motorcycle
+    - dog
+    - cat
+    - deer
+    - bear
+    - package
+
 go2rtc:
   streams:
     doorbell_1:
       - "ffmpeg:http://192.168.40.100/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010#video=copy#audio=copy#audio=opus"
     doorbell_2:
       - "ffmpeg:http://192.168.40.100/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010"
-
     front_door_1:
       - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=0&unicast=true
     front_door_2:
       - rtsp://admin:July122010@192.168.40.70:554/cam/realmonitor?channel=1&subtype=1&unicast=true
-
     garage_1:
       - rtsp://admin:July122010@192.168.40.67:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     garage_2:
       - rtsp://admin:July122010@192.168.40.67:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-
     driveway_1:
       - "ffmpeg:rtsp://admin:July122010@192.168.40.65:554/h265Preview_01_main#video=h264"
     driveway_2:
       - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
-
     shop_inside_1:
       - "ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010#video=copy#audio=copy#audio=opus"
     shop_inside_2:
       - "ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_sub.bcs&user=admin&password=July122010"
-
     shop_front_1:
       - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     shop_front_2:
       - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-
     shop_side_1:
       - rtsp://admin:July122010@192.168.40.55:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     shop_side_2:
       - rtsp://admin:July122010@192.168.40.55:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-
     patio_1:
       - rtsp://admin:July122010@192.168.40.85:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     patio_2:
       - rtsp://admin:July122010@192.168.40.85:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-
     firepit_1:
       - rtsp://admin:July122010@192.168.40.80:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     firepit_2:
       - rtsp://admin:July122010@192.168.40.80:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-
     mbr_1:
       - rtsp://admin:July122010@192.168.40.75:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     mbr_2:
       - rtsp://admin:July122010@192.168.40.75:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-
     behind_garage_1:
       - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     behind_garage_2:
       - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-
     speakeasy_1:
       - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
     speakeasy_2:
@@ -106,6 +107,10 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - package
     live:
       streams:
         Stream 1: doorbell_1
@@ -127,6 +132,10 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - package
     live:
       streams:
         Stream 1: front_door_1
@@ -148,6 +157,12 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - car
+        - truck
+        - motorcycle
     live:
       streams:
         Stream 1: garage_1
@@ -169,6 +184,12 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - car
+        - truck
+        - motorcycle
     live:
       streams:
         Stream 1: driveway_1
@@ -191,6 +212,9 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
     live:
       streams:
         Stream 1: shop_inside_1
@@ -213,6 +237,11 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - car
+        - truck
     live:
       streams:
         Stream 1: shop_front_1
@@ -235,6 +264,10 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - bear
     live:
       streams:
         Stream 1: shop_side_1
@@ -256,6 +289,9 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
     live:
       streams:
         Stream 1: patio_1
@@ -277,6 +313,11 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - bear
+        - deer
     live:
       streams:
         Stream 1: firepit_1
@@ -298,6 +339,10 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - deer
     live:
       streams:
         Stream 1: mbr_1
@@ -320,6 +365,9 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
     live:
       streams:
         Stream 1: behind_garage_1
@@ -341,6 +389,11 @@ cameras:
     detect:
       enabled: true
       fps: 5
+    objects:
+      track:
+        - person
+        - car
+        - truck
     live:
       streams:
         Stream 1: speakeasy_1

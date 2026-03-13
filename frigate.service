@@ -1,0 +1,15 @@
+[Unit]
+Description=Frigate NVR service
+After=network.target
+
+[Service]
+Environment=DEFAULT_FFMPEG_VERSION=7.0
+Environment=INCLUDED_FFMPEG_VERSIONS=5.0:7.0
+Environment=PLUS_API_KEY=b5c334f9-38ab-4add-bae5-0fb2941abb2b:d592dfadc37de7ffb76c0acae212a34eb8926697
+ExecStartPre=+rm -f /dev/shm/logs/frigate/current
+ExecStart=/bin/bash -c "bash /opt/frigate/docker/main/rootfs/etc/s6-overlay/s6-rc.d/frigate/run 2> >(/usr/bin/ts '%%Y-%%m-%%d %%H:%%M:%%.S ' >&2) | /usr/bin/ts '%%Y-%%m-%%d %%H:%%M:%%.S '"
+StandardOutput=file:/dev/shm/logs/frigate/current
+StandardError=file:/dev/shm/logs/frigate/current
+
+[Install]
+WantedBy=multi-user.target
