@@ -214,7 +214,7 @@ cameras:
             - record
             - audio
         - path: rtsp://127.0.0.1:8554/driveway_2
-          input_args: preset-rtsp-restream
+          input_args: preset-rtsp-generic
           roles:
             - detect
     detect:
@@ -255,7 +255,7 @@ cameras:
             - record
             - audio
         - path: rtsp://127.0.0.1:8554/shop_inside_2
-          input_args: preset-rtsp-restream
+          input_args: preset-rtsp-generic
           roles:
             - detect
     detect:
@@ -472,7 +472,7 @@ cameras:
             - record
             - audio
         - path: rtsp://127.0.0.1:8554/speakeasy_2
-          input_args: preset-rtsp-restream
+          input_args: preset-rtsp-generic
           roles:
             - detect
     detect:
