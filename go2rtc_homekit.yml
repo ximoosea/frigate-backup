@@ -209,3 +209,15 @@ streams:
 streams:
   speakeasy_1:
     - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
+streams:
+  wizard_stream_1773539641887_1773539701358:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
+streams:
+  wizard_stream_1773539662356_1773539701359:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_sub
+streams:
+  speakeasy_1:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
+streams:
+  speakeasy_2:
+    - rtsp://admin:July122010@192.168.40.105:554/Preview_01_sub

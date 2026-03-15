@@ -61,9 +61,9 @@ go2rtc:
       - rtsp://admin:July122010@192.168.40.65:554/h264Preview_01_sub
     # Shop Inside (192.168.40.50)
     shop_inside_1:
-      - rtsp://admin:July122010@192.168.40.50:554/h264Preview_01_main
+      - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=admin&password=July122010#video=copy#audio=copy#audio=opus
     shop_inside_2:
-      - rtsp://admin:July122010@192.168.40.50:554/h264Preview_01_sub
+      - ffmpeg:http://192.168.40.50/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user=admin&password=July122010
     shop_front_1:
       - rtsp://admin:July122010@192.168.40.60:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     shop_front_2:
@@ -88,11 +88,11 @@ go2rtc:
       - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=0&unicast=true&proto=Onvif
     behind_garage_2:
       - rtsp://admin:July122010@192.168.40.90:554/cam/realmonitor?channel=1&subtype=1&unicast=true&proto=Onvif
-    speakeasy_1:
-      - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main#backchannel=0
-    speakeasy_2:
-      - rtsp://admin:July122010@192.168.40.105:554/Preview_01_sub#backchannel=0
 
+    speakeasy_1:
+      - rtsp://admin:July122010@192.168.40.105:554/Preview_01_main
+    speakeasy_2:
+      - rtsp://admin:July122010@192.168.40.105:554/Preview_01_sub
 cameras:
   doorbell:
     enabled: true
@@ -255,7 +255,7 @@ cameras:
             - record
             - audio
         - path: rtsp://127.0.0.1:8554/shop_inside_2
-          input_args: -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1 -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 5
+          input_args: preset-rtsp-restream
           roles:
             - detect
     detect:
@@ -268,7 +268,6 @@ cameras:
       streams:
         Stream 1: shop_inside_1
         Stream 2: shop_inside_2
-
   shop_front:
     enabled: true
     friendly_name: Shop Front
@@ -462,6 +461,7 @@ cameras:
         loitering_time: 0
         objects: person
         friendly_name: Behind Garage Area
+
   speakeasy:
     enabled: true
     ffmpeg:
@@ -472,20 +472,11 @@ cameras:
             - record
             - audio
         - path: rtsp://127.0.0.1:8554/speakeasy_2
-          input_args: -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1 -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 5
+          input_args: preset-rtsp-restream
           roles:
             - detect
-    detect:
-      enabled: true
-      fps: 5
-    objects:
-      track:
-        - person
-        - car
-        - truck
     live:
       streams:
         Stream 1: speakeasy_1
         Stream 2: speakeasy_2
-
 version: 0.17-0
