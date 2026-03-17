@@ -1,5 +1,6 @@
 mqtt:
-  enabled: false
+  enabled: true
+  host: localhost  # Local only, no external broker needed
 
 auth:
   enabled: false
@@ -115,6 +116,11 @@ cameras:
       track:
         - person
         - package
+      filters:     # <-- ADD THIS BLOCK HERE (same level as track:)
+        person:
+          min_score: 0.8
+        package:
+          min_score: 0.8
     live:
       streams:
         Stream 1: doorbell_1
@@ -140,6 +146,9 @@ cameras:
       improve_contrast: true
       mask: 
         0.652,0.989,0.632,0.765,0.636,0.453,0.318,0.455,0.113,0.48,0.116,0.583,0.057,0.588,0.078,0.791,0,0.926,0.004,0.002,0.996,0.007,0.994,0.995
+    review:
+      alerts: {}
+      detections: {}
   front_door:
     enabled: true
     ffmpeg:
