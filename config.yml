@@ -32,13 +32,6 @@ objects:
   track:
     - person
     - car
-    - truck
-    - motorcycle
-    - dog
-    - cat
-    - deer
-    - bear
-    - package
 
 go2rtc:
   streams:
@@ -208,8 +201,6 @@ cameras:
       track:
         - person
         - car
-        - truck
-        - motorcycle
     live:
       streams:
         Stream 1: garage_1
@@ -226,14 +217,14 @@ cameras:
           0.003,0.587,0.003,0.495,0.13,0.372,0.473,0.191,0.72,0.15,0.246,0.386
         inertia: 8
         loitering_time: 0
-        objects: motorcycle
+        objects: person
         friendly_name: Garage - Wildlife
       garage_-_deer_in_hostas:
         coordinates: 
           0.072,0.54,0.177,0.419,0.43,0.258,0.547,0.182,0.724,0.148,0.912,0.345,0.403,0.354
         inertia: 8
         loitering_time: 0
-        objects: motorcycle
+        objects: person
         friendly_name: Garage - Deer in hostas
     motion:
       threshold: 35
@@ -262,8 +253,6 @@ cameras:
       track:
         - person
         - car
-        - truck
-        - motorcycle
     live:
       streams:
         Stream 1: driveway_1
@@ -282,7 +271,7 @@ cameras:
           0.251,0.27,0.248,0.157,0.53,0.084,0.868,0.106,0.906,0.241,0.82,0.971,0.013,0.983,0.009,0.566,0.265,0.402
         inertia: 8
         loitering_time: 0
-        objects: motorcycle
+        objects: person
         friendly_name: Driveway - Wildlife
     motion:
       threshold: 35
